@@ -13,11 +13,20 @@
 
 <body>
   {{> _navbar}}
-
-  <div class="container">
-    {{>_msg}} {{{body}}}
+  <style>
+    #img {
+      position: relative;
+      background: url("https://images.pexels.com/photos/40889/light-bulb-current-light-glow-40889.jpeg?cs=srgb&dl=bulb-close-up-crack-40889.jpg&fm=jpg") no-repeat;
+      background-size: cover;
+      opacity: 0.7;
+      background-position: center;
+      height: 100vh;
+      text-align: center;
+      padding: 250px 0;
+    }
+  </style>
+  <div class="container" id='img'> {{>_msg}} {{{body}}}
   </div>
-
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>
