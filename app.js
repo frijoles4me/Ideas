@@ -17,10 +17,15 @@ const users = require("./routes/users");
 //Passport Config
 require("./config/passport")(passport);
 
+// DB Config
+// Brining in the database.js file witht "if" statement
+const db = require("./config/database");
+
 //Connect to mongoose
+// changeged the mongodb://localhost:27017/idea-dev to db.mongURI
 mongoose
   .connect(
-    "mongodb://localhost:27017/idea-dev",
+    db.mongoURI,
     {
       useNewUrlParser: true
     }
@@ -87,7 +92,10 @@ app.get("/about", (req, res) => {
 app.use("/ideas", ideas);
 app.use("/users", users);
 
-const port = 5000;
+//frontend port
+//heroku selects a port for the app to show
+//if in production heroku port will be used or port 5000
+const port = process.env.PORT || 5000;
 
 app.listen(port, () => {
   console.log(`Server started on port ${port}`);
